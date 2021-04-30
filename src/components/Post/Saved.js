@@ -30,4 +30,8 @@ Saved.proptypes = {
   hasSaved: PropTypes.bool,
 };
 
+Saved.defaultProps = {
+  hasSaved: false,
+};
+
 export default React.memo(Saved);

@@ -36,6 +36,30 @@ const posts = {
         transformData: payload,
       };
     },
+    savePost: (state, post) => {
+      const index = state.transformData.findIndex(
+        (item) => item.id === post.id,
+      );
+
+      const transformData = [...state.transformData];
+      transformData[index].hasSaved = true;
+      return {
+        ...state,
+        transformData: transformData,
+      };
+    },
+    unSavePost: (state, post) => {
+      const index = state.transformData.findIndex(
+        (item) => item.id === post.id,
+      );
+
+      const transformData = [...state.transformData];
+      transformData[index].hasSaved = false;
+      return {
+        ...state,
+        transformData: transformData,
+      };
+    },
   },
   effects: (dispatch) => ({
     async getAllPostsAsync() {
@@ -76,6 +100,7 @@ const posts = {
             userId: particularUser.id,
             views: `${randomViewsGenerator(3000, 6000)} Views`,
             waves: randomWaveGenerator(100, 600),
+            hasSaved: false,
           };
         });
 

@@ -11,6 +11,8 @@ const mapState = (state) => ({
 
 const mapDispatch = (dispatch) => ({
   getAllPostsAsync: dispatch.posts.getAllPostsAsync,
+  savePost: dispatch.posts.savePost,
+  unSavePost: dispatch.posts.unSavePost,
 });
 
 export default connect(mapState, mapDispatch)(Home);

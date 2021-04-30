@@ -1,12 +1,29 @@
 import React from 'react';
-import {View} from 'react-native';
+import {SafeAreaView} from 'react-native';
+import {Post} from '../../components';
+import {FlatList} from 'react-native-gesture-handler';
 
-export default function Saved(props) {
+const Saved = ({posts, savePost, unSavePost}) => {
   return (
-    <>
-      <View>
-        <View />
-      </View>
-    </>
+    <SafeAreaView>
+      <FlatList
+        data={posts}
+        initialNumToRender={5}
+        keyExtractor={(item) => `${item.id}`}
+        renderItem={({item}) => {
+          if (item.hasSaved) {
+            return (
+              <Post
+                item={item}
+                onPressSave={savePost}
+                onPressUnSave={unSavePost}
+              />
+            );
+          }
+        }}
+      />
+    </SafeAreaView>
   );
-}
+};
+
+export default Saved;
