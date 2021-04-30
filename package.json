@@ -9,6 +9,18 @@
     "test": "jest",
     "lint": "eslint ."
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "app/**/*.js": [
+      "prettier --write",
+      "./node_modules/.bin/eslint --fix",
+      "git add"
+    ]
+  },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.11",
     "@react-navigation/bottom-tabs": "^5.11.10",
@@ -37,6 +49,7 @@
     "@types/react-test-renderer": "^16.9.3",
     "babel-jest": "^25.1.0",
     "eslint": "^7.25.0",
+    "husky": "^6.0.0",
     "jest": "^25.1.0",
     "metro-react-native-babel-preset": "^0.59.0",
     "prettier": "^2.2.1",
