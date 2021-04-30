@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import RNBootSplash from 'react-native-bootsplash';
-import {View} from 'react-native';
+import {View, SafeAreaView} from 'react-native';
+import {Post} from '../../components';
 
 const Home = ({count, asyncIncrement, increment, resetCount}) => {
   useEffect(() => {
@@ -15,11 +16,9 @@ const Home = ({count, asyncIncrement, increment, resetCount}) => {
   const [loading, setLoading] = useState(true);
 
   return (
-    <>
-      <View>
-        <View />
-      </View>
-    </>
+    <SafeAreaView>
+      <Post />
+    </SafeAreaView>
   );
 };
 
