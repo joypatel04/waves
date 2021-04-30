@@ -1,7 +1,7 @@
 import React, {useEffect, useCallback} from 'react';
 import RNBootSplash from 'react-native-bootsplash';
 import PropTypes from 'prop-types';
-import {SafeAreaView} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
 import {Post} from '../../components';
 import {FlatList} from 'react-native-gesture-handler';
 
@@ -23,6 +23,7 @@ const Home = ({getAllPostsAsync, posts, savePost, unSavePost, sentWaves}) => {
   return (
     <SafeAreaView>
       <FlatList
+        contentContainerStyle={styles.flatListContainer}
         data={posts}
         initialNumToRender={5}
         keyExtractor={(item) => `${item.id}`}
@@ -48,5 +49,9 @@ Home.proptypes = {
   unSavePost: PropTypes.func,
   sentWaves: PropTypes.func,
 };
+
+const styles = StyleSheet.create({
+  flatListContainer: {paddingBottom: 16},
+});
 
 export default Home;
