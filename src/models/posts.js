@@ -1,5 +1,6 @@
 import axios from 'axios';
 import idx from 'idx';
+import {randomViewsGenerator, randomWaveGenerator} from '../utils/helpers';
 
 const posts = {
   state: {
@@ -73,6 +74,8 @@ const posts = {
             ...particularUser,
             ...item,
             userId: particularUser.id,
+            views: `${randomViewsGenerator(3000, 6000)} Views`,
+            waves: randomWaveGenerator(100, 600),
           };
         });
 

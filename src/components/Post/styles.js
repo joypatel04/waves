@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {primaryColor, darkCharcoal} from '../../themes/colors';
+import {primaryColor, darkCharcoal, lightGrey} from '../../themes/colors';
 import {primaryFontBold, primaryFont, secondaryFont} from '../../themes/fonts';
 import {scale} from '../../themes/scaler';
 const styles = StyleSheet.create({
@@ -34,6 +34,24 @@ const styles = StyleSheet.create({
     fontFamily: secondaryFont,
     fontSize: scale(14),
     fontWeight: '400',
+  },
+  wavesContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  wavesImage: {
+    width: 30,
+    height: 30,
+    tintColor: lightGrey,
+  },
+  wavedColor: {
+    tintColor: primaryColor,
+  },
+  wavesCount: {
+    color: primaryColor,
+    fontFamily: secondaryFont,
+    fontWeight: '400',
+    marginLeft: 10,
   },
 });
 

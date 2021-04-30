@@ -1,11 +1,13 @@
-import React from 'react';
-import {View} from 'react-native';
+import React, {useState} from 'react';
+import {View, Image, TouchableWithoutFeedback} from 'react-native';
 import {Card, Avatar, Text} from 'react-native-elements';
 import PropTypes from 'prop-types';
+import {waves} from '../../assets/images';
 import styles from './styles';
 
 const Post = ({item}) => {
-  console.log('item', item);
+  const [waved, setWaved] = useState(false);
+  const [waveCount, setWaveCount] = useState(item.waves);
   return (
     <Card>
       <View style={styles.userInfocontainer}>
@@ -13,7 +15,7 @@ const Post = ({item}) => {
           size="medium"
           rounded
           source={{
-            uri: `https://i.pravatar.cc/48?img=${item.userId}`,
+            uri: `https://i.pravatar.cc/200?img=${item.userId}`,
           }}
         />
         <View style={styles.nameContainer}>
@@ -21,7 +23,7 @@ const Post = ({item}) => {
             {item.name}
           </Text>
           <Text h5 style={styles.views}>
-            {'1.2k Views'}
+            {item.views}
           </Text>
         </View>
       </View>
@@ -29,7 +31,26 @@ const Post = ({item}) => {
       <Card.FeaturedSubtitle style={styles.subTitle}>
         {item.body}
       </Card.FeaturedSubtitle>
-      <View style={styles.userInfocontainer}></View>
+      <View style={styles.userInfocontainer}>
+        <View style={styles.wavesContainer}>
+          <TouchableWithoutFeedback
+            onPress={() => {
+              if (!waved) {
+                setWaved(true);
+              }
+
+              setWaveCount(waveCount + 1);
+            }}>
+            <Image
+              style={[styles.wavesImage, waved && styles.wavedColor]}
+              source={waves}
+            />
+          </TouchableWithoutFeedback>
+          <Text h5 style={styles.wavesCount}>
+            {waveCount}
+          </Text>
+        </View>
+      </View>
     </Card>
   );
 };
