@@ -30,6 +30,7 @@
     "@rematch/core": "^2.0.0-next.1",
     "react": "16.13.1",
     "react-native": "0.63.2",
+    "react-native-bootsplash": "^3.2.2",
     "react-native-easy-toast": "^1.2.0",
     "react-native-elements": "3.4.1",
     "react-native-gesture-handler": "^1.10.3",
