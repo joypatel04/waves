@@ -1,9 +1,10 @@
 import React from 'react';
 import {SafeAreaView} from 'react-native';
+import PropTypes from 'prop-types';
 import {Post} from '../../components';
 import {FlatList} from 'react-native-gesture-handler';
 
-const Saved = ({posts, savePost, unSavePost}) => {
+const Saved = ({posts, savePost, unSavePost, sentWaves}) => {
   return (
     <SafeAreaView>
       <FlatList
@@ -17,6 +18,7 @@ const Saved = ({posts, savePost, unSavePost}) => {
                 item={item}
                 onPressSave={savePost}
                 onPressUnSave={unSavePost}
+                sentWaves={sentWaves}
               />
             );
           }
@@ -24,6 +26,13 @@ const Saved = ({posts, savePost, unSavePost}) => {
       />
     </SafeAreaView>
   );
+};
+
+Saved.proptypes = {
+  posts: PropTypes.array,
+  savePosts: PropTypes.func,
+  unSavePost: PropTypes.func,
+  sentWaves: PropTypes.func,
 };
 
 export default Saved;

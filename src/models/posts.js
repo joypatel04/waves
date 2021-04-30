@@ -60,6 +60,24 @@ const posts = {
         transformData: transformData,
       };
     },
+    sentWaves: (state, post) => {
+      const index = state.transformData.findIndex(
+        (item) => item.id === post.id,
+      );
+
+      const transformData = [...state.transformData];
+      const userSentWaves = transformData[index].userSentWaves;
+      if (!userSentWaves) {
+        transformData[index].userSentWaves = true;
+      }
+
+      transformData[index].waves = transformData[index].waves + 1;
+
+      return {
+        ...state,
+        transformData: transformData,
+      };
+    },
   },
   effects: (dispatch) => ({
     async getAllPostsAsync() {
@@ -100,6 +118,7 @@ const posts = {
             userId: particularUser.id,
             views: `${randomViewsGenerator(3000, 6000)} Views`,
             waves: randomWaveGenerator(100, 600),
+            userSentWaves: false,
             hasSaved: false,
           };
         });

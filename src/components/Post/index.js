@@ -8,17 +8,17 @@ import Waves from './Waves';
 import Saved from './Saved';
 import styles from './styles';
 
-const Post = ({item, onPressSave, onPressUnSave}) => {
-  const {userId, name, views, title, body, hasSaved, waves: totalWaves} = item;
-  const [waves, setWaves] = useState(false);
-  const [waveCount, setWaveCount] = useState(totalWaves);
-
-  const onWavedPress = useCallback(() => {
-    if (!waves) {
-      setWaves(true);
-    }
-    setWaveCount(waveCount + 1);
-  }, [waves, waveCount, setWaves, setWaveCount]);
+const Post = ({item, onPressSave, onPressUnSave, sentWaves}) => {
+  const {
+    userId,
+    name,
+    views,
+    title,
+    body,
+    hasSaved,
+    waves,
+    userSentWaves,
+  } = item;
 
   return (
     <Card containerStyle={styles.cardContainer}>
@@ -28,7 +28,11 @@ const Post = ({item, onPressSave, onPressUnSave}) => {
         {body}
       </Card.FeaturedSubtitle>
       <View style={[styles.userInfocontainer, styles.spaceContainer]}>
-        <Waves waves={waves} waveCount={waveCount} onPress={onWavedPress} />
+        <Waves
+          waves={userSentWaves}
+          waveCount={waves}
+          onPress={() => sentWaves(item)}
+        />
         <Saved
           hasSaved={hasSaved}
           onPress={() => {
@@ -44,6 +48,7 @@ Post.proptypes = {
   item: PropTypes.object,
   onPressSave: PropTypes.func,
   onPressUnSave: PropTypes.func,
+  sentWaves: PropTypes.func,
 };
 
 Post.defaultProps = {

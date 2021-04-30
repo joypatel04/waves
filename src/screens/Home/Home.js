@@ -5,7 +5,7 @@ import {SafeAreaView} from 'react-native';
 import {Post} from '../../components';
 import {FlatList} from 'react-native-gesture-handler';
 
-const Home = ({getAllPostsAsync, posts, savePost, unSavePost}) => {
+const Home = ({getAllPostsAsync, posts, savePost, unSavePost, sentWaves}) => {
   const getAllData = useCallback(async () => {
     await getAllPostsAsync();
   }, [getAllPostsAsync]);
@@ -32,6 +32,7 @@ const Home = ({getAllPostsAsync, posts, savePost, unSavePost}) => {
               item={item}
               onPressSave={savePost}
               onPressUnSave={unSavePost}
+              sentWaves={sentWaves}
             />
           );
         }}
@@ -43,9 +44,9 @@ const Home = ({getAllPostsAsync, posts, savePost, unSavePost}) => {
 Home.proptypes = {
   getAllPostsAsync: PropTypes.func,
   posts: PropTypes.array,
-  savedPost: PropTypes.array,
   savePosts: PropTypes.func,
   unSavePost: PropTypes.func,
+  sentWaves: PropTypes.func,
 };
 
 export default Home;

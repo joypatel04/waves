@@ -7,6 +7,7 @@ const mapState = (state) => ({
 
 const mapDispatch = (dispatch) => ({
   unSavePost: dispatch.posts.unSavePost,
+  sentWaves: dispatch.posts.sentWaves,
 });
 
 export default connect(mapState, mapDispatch)(Saved);
