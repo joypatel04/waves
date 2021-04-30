@@ -9,6 +9,9 @@ const styles = StyleSheet.create({
     marginVertical: scale(10),
     alignItems: 'center',
   },
+  spaceContainer: {
+    justifyContent: 'space-between',
+  },
   nameContainer: {
     marginLeft: scale(16),
     justifyContent: 'space-around',
@@ -44,14 +47,17 @@ const styles = StyleSheet.create({
     height: 30,
     tintColor: lightGrey,
   },
-  wavedColor: {
+  wavesColor: {
     tintColor: primaryColor,
   },
   wavesCount: {
     color: primaryColor,
     fontFamily: secondaryFont,
-    fontWeight: '400',
+    fontWeight: 'bold',
     marginLeft: 10,
+  },
+  savedColor: {
+    color: primaryColor,
   },
 });
 

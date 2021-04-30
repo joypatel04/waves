@@ -4,9 +4,8 @@ import {SafeAreaView} from 'react-native';
 import {Post} from '../../components';
 import {FlatList} from 'react-native-gesture-handler';
 
-const Home = ({getAllUsersAsync, getAllPostsAsync, posts, users}) => {
+const Home = ({getAllPostsAsync, posts, savedPost}) => {
   const getAllData = useCallback(async () => {
-    // await getAllUsersAsync();
     await getAllPostsAsync();
   }, [getAllPostsAsync]);
 
@@ -26,7 +25,9 @@ const Home = ({getAllUsersAsync, getAllPostsAsync, posts, users}) => {
         data={posts}
         initialNumToRender={5}
         keyExtractor={(item) => `${item.id}`}
-        renderItem={({item}) => <Post item={item} />}
+        renderItem={({item}) => {
+          return <Post item={item} hasSaved={false} />;
+        }}
       />
     </SafeAreaView>
   );

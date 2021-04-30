@@ -1,6 +1,8 @@
 import axios from 'axios';
 import idx from 'idx';
 
+// Created a Separate file but not using for anything since i combined Users + Posts togather.
+
 const users = {
   state: {
     data: [],

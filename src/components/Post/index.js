@@ -1,55 +1,33 @@
-import React, {useState} from 'react';
-import {View, Image, TouchableWithoutFeedback} from 'react-native';
-import {Card, Avatar, Text} from 'react-native-elements';
+import React, {useCallback, useState} from 'react';
+import {View} from 'react-native';
+import {Card} from 'react-native-elements';
 import PropTypes from 'prop-types';
-import {waves} from '../../assets/images';
+import PostHeader from './PostHeader';
+import Waves from './Waves';
+import Saved from './Saved';
 import styles from './styles';
 
-const Post = ({item}) => {
-  const [waved, setWaved] = useState(false);
+const Post = ({item, hasSaved}) => {
+  const [waves, setWaves] = useState(false);
   const [waveCount, setWaveCount] = useState(item.waves);
+
+  const onWavedPress = useCallback(() => {
+    if (!waves) {
+      setWaves(true);
+    }
+    setWaveCount(waveCount + 1);
+  }, [waves, waveCount, setWaves, setWaveCount]);
+
   return (
     <Card>
-      <View style={styles.userInfocontainer}>
-        <Avatar
-          size="medium"
-          rounded
-          source={{
-            uri: `https://i.pravatar.cc/200?img=${item.userId}`,
-          }}
-        />
-        <View style={styles.nameContainer}>
-          <Text h4 style={styles.name}>
-            {item.name}
-          </Text>
-          <Text h5 style={styles.views}>
-            {item.views}
-          </Text>
-        </View>
-      </View>
+      <PostHeader userId={item.userId} name={item.name} views={item.views} />
       <Card.FeaturedTitle style={styles.title}>{item.title}</Card.FeaturedTitle>
       <Card.FeaturedSubtitle style={styles.subTitle}>
         {item.body}
       </Card.FeaturedSubtitle>
-      <View style={styles.userInfocontainer}>
-        <View style={styles.wavesContainer}>
-          <TouchableWithoutFeedback
-            onPress={() => {
-              if (!waved) {
-                setWaved(true);
-              }
-
-              setWaveCount(waveCount + 1);
-            }}>
-            <Image
-              style={[styles.wavesImage, waved && styles.wavedColor]}
-              source={waves}
-            />
-          </TouchableWithoutFeedback>
-          <Text h5 style={styles.wavesCount}>
-            {waveCount}
-          </Text>
-        </View>
+      <View style={[styles.userInfocontainer, styles.spaceContainer]}>
+        <Waves waves={waves} waveCount={waveCount} onPress={onWavedPress} />
+        <Saved hasSaved={hasSaved} />
       </View>
     </Card>
   );

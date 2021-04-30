@@ -1,1 +1,1 @@
-export const waves = require('./waves.png');
+export const wave = require('./waves.png');
