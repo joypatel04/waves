@@ -6,7 +6,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {ThemeProvider} from 'react-native-elements';
 
 import {Home, Profile, Saved} from '../screens';
-import {primaryColor} from '../themes/colors';
+import {primaryColor, secondaryColor} from '../themes/colors';
 
 const Tab = createBottomTabNavigator();
 
@@ -15,6 +15,7 @@ const MyTheme = {
   colors: {
     ...DefaultTheme.colors,
     primary: primaryColor,
+    background: secondaryColor,
   },
 };
 
