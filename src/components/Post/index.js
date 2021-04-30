@@ -21,7 +21,7 @@ const Post = ({item, onPressSave, onPressUnSave}) => {
   }, [waves, waveCount, setWaves, setWaveCount]);
 
   return (
-    <Card>
+    <Card containerStyle={styles.cardContainer}>
       <PostHeader userId={userId} name={name} views={views} />
       <Card.FeaturedTitle style={styles.title}>{title}</Card.FeaturedTitle>
       <Card.FeaturedSubtitle style={styles.subTitle}>

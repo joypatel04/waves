@@ -3,6 +3,7 @@ import {primaryColor, darkCharcoal, lightGrey} from '../../themes/colors';
 import {primaryFontBold, primaryFont, secondaryFont} from '../../themes/fonts';
 import {scale} from '../../themes/scaler';
 const styles = StyleSheet.create({
+  cardContainer: {borderRadius: 16},
   userInfocontainer: {
     flexDirection: 'row',
     height: scale(44),
