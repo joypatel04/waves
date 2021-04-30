@@ -1,13 +1,33 @@
 import {StyleSheet} from 'react-native';
 import {primaryColor, darkCharcoal} from '../../themes/colors';
-import {primaryFontBold, secondaryFont} from '../../themes/fonts';
+import {primaryFontBold, primaryFont, secondaryFont} from '../../themes/fonts';
 import {scale} from '../../themes/scaler';
 const styles = StyleSheet.create({
-  container: {},
+  userInfocontainer: {
+    flexDirection: 'row',
+    height: scale(44),
+    marginVertical: scale(10),
+    alignItems: 'center',
+  },
+  nameContainer: {
+    marginLeft: scale(16),
+    justifyContent: 'space-around',
+  },
+  name: {
+    color: darkCharcoal,
+    fontFamily: primaryFont,
+    fontWeight: '500',
+  },
+  views: {
+    color: darkCharcoal,
+    fontFamily: secondaryFont,
+    fontWeight: '400',
+  },
   title: {
     color: primaryColor,
     fontFamily: primaryFontBold,
     fontSize: scale(16),
+    marginTop: 10,
   },
   subTitle: {
     color: darkCharcoal,
