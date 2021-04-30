@@ -1,9 +1,9 @@
 import React from 'react';
 import {View} from 'react-native';
 import {Button, Input} from 'react-native-elements';
-import {Spacer} from '../components';
+import {Spacer} from '../../components';
 
-export default function Login(props) {
+export default function Profile(props) {
   return (
     <>
       <View>

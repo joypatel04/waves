@@ -13,5 +13,5 @@ export default function Spacer(props) {
     },
   });
 
-  return <View style={style.spacer}></View>;
+  return <View style={style.spacer} />;
 }

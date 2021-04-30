@@ -3,8 +3,8 @@ import React, {useRef, useState, useCallback} from 'react';
 import {Text, View} from 'react-native';
 import Toast from 'react-native-easy-toast';
 import {Button} from 'react-native-elements';
-import {connect} from 'react-redux';
-import {Spacer} from '../components';
+
+import {Spacer} from '../../components';
 
 const Home = ({count, asyncIncrement, increment, resetCount}) => {
   const toast = useRef();
@@ -47,14 +47,4 @@ const Home = ({count, asyncIncrement, increment, resetCount}) => {
   );
 };
 
-const mapState = (state) => ({
-  count: state.count,
-});
-
-const mapDispatch = (dispatch) => ({
-  increment: dispatch.count.increment,
-  asyncIncrement: dispatch.count.incrementAsync,
-  resetCount: dispatch.count.reset,
-});
-
-export default connect(mapState, mapDispatch)(Home);
+export default Home;
