@@ -20,10 +20,6 @@ const MyTheme = {
 };
 
 export default function Navigation() {
-  const stateHandler = (state) => {
-    console.log('onStateChange: STATE:', state);
-  };
-
   const prefix = Platform.OS === 'android' ? 'mychat://mychat/' : 'mychat://';
 
   const linking = {
@@ -31,10 +27,7 @@ export default function Navigation() {
   };
 
   return (
-    <NavigationContainer
-      theme={MyTheme}
-      onStateChange={stateHandler}
-      linking={linking}>
+    <NavigationContainer theme={MyTheme} linking={linking}>
       <ThemeProvider>
         <Tab.Navigator
           tabBarOptions={{
