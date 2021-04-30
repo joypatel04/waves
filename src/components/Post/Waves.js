@@ -14,7 +14,7 @@ const Waves = ({waves, onPress, waveCount}) => (
       />
     </TouchableWithoutFeedback>
     <Text h5 style={styles.wavesCount}>
-      {waveCount}
+      {`${waveCount} Waves`}
     </Text>
   </View>
 );
