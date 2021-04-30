@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import {Text, View} from 'react-native';
 
 const Home = ({count, asyncIncrement, increment, resetCount}) => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   return (
     <>
