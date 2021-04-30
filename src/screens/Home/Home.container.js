@@ -2,13 +2,15 @@ import {connect} from 'react-redux';
 import Home from './Home';
 
 const mapState = (state) => ({
-  count: state.count,
+  // Separate users and posts data
+  // users: state.users.data,
+  // posts: state.posts.data,
+  // Combined data of posts with appropriate users info
+  posts: state.posts.transformData,
 });
 
 const mapDispatch = (dispatch) => ({
-  increment: dispatch.count.increment,
-  asyncIncrement: dispatch.count.incrementAsync,
-  resetCount: dispatch.count.reset,
+  getAllPostsAsync: dispatch.posts.getAllPostsAsync,
 });
 
 export default connect(mapState, mapDispatch)(Home);

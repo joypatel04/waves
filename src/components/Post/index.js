@@ -1,19 +1,21 @@
 import React from 'react';
-import {View} from 'react-native';
-import {Card, ListItem, Button, Icon} from 'react-native-elements';
+import {Card} from 'react-native-elements';
+import PropTypes from 'prop-types';
 import styles from './styles';
 
-const Post = () => {
+const Post = ({item}) => {
   return (
     <Card>
-      <Card.FeaturedTitle style={styles.title}>
-        Improving Redux Reducers in 3 Ways
-      </Card.FeaturedTitle>
+      <Card.FeaturedTitle style={styles.title}>{item.title}</Card.FeaturedTitle>
       <Card.FeaturedSubtitle style={styles.subTitle}>
-        Improving Redux Reducers in 3 Ways
+        {item.body}
       </Card.FeaturedSubtitle>
     </Card>
   );
+};
+
+Post.proptypes = {
+  item: PropTypes.object,
 };
 
 export default Post;

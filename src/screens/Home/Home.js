@@ -1,23 +1,33 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useCallback} from 'react';
 import RNBootSplash from 'react-native-bootsplash';
-import {View, SafeAreaView} from 'react-native';
+import {SafeAreaView} from 'react-native';
 import {Post} from '../../components';
+import {FlatList} from 'react-native-gesture-handler';
 
-const Home = ({count, asyncIncrement, increment, resetCount}) => {
+const Home = ({getAllUsersAsync, getAllPostsAsync, posts, users}) => {
+  const getAllData = useCallback(async () => {
+    // await getAllUsersAsync();
+    await getAllPostsAsync();
+  }, [getAllPostsAsync]);
+
   useEffect(() => {
     const init = async () => {
-      // …do multiple sync or async tasks
+      await getAllData();
     };
 
     init().finally(async () => {
       await RNBootSplash.hide({fade: true});
     });
-  }, []);
-  const [loading, setLoading] = useState(true);
+  }, [getAllData]);
 
   return (
     <SafeAreaView>
-      <Post />
+      <FlatList
+        data={posts}
+        initialNumToRender={5}
+        keyExtractor={(item) => `${item.id}`}
+        renderItem={({item}) => <Post item={item} />}
+      />
     </SafeAreaView>
   );
 };
