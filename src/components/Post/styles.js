@@ -60,6 +60,10 @@ const styles = StyleSheet.create({
   savedColor: {
     color: primaryColor,
   },
+  emptyList: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
 export default styles;

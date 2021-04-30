@@ -10,12 +10,10 @@ const persistor = getPersistor();
 
 export default function App() {
   return (
-    <>
-      <Provider store={store}>
-        <PersistGate persistor={persistor}>
-          <Navigation />
-        </PersistGate>
-      </Provider>
-    </>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <Navigation />
+      </PersistGate>
+    </Provider>
   );
 }
