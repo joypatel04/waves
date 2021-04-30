@@ -48,7 +48,6 @@ export default function Navigation() {
               // You can return any component that you like here!
               return <Ionicons name={iconName} size={size} color={color} />;
             },
-            headerShown: false,
           })}>
           <Tab.Screen name="Home" component={Home} />
           <Tab.Screen name="Saved" component={Saved} />
