@@ -7,7 +7,7 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "./node_modules/.bin/eslint --fix app",
+    "lint": "./node_modules/.bin/eslint --fix src",
     "lint-staged": "lint-staged"
   },
   "husky": {
