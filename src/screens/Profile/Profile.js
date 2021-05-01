@@ -1,12 +1,13 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View, SafeAreaView} from 'react-native';
+import {ProfileHeader} from '../../components';
 
-export default function Profile(props) {
+import styles from './styles';
+
+export default function Profile() {
   return (
-    <>
-      <View>
-        <View />
-      </View>
-    </>
+    <SafeAreaView>
+      <ProfileHeader />
+    </SafeAreaView>
   );
 }
