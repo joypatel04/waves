@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {EmptyList, Post} from '../../components';
 import {FlatList} from 'react-native-gesture-handler';
 
-const Saved = ({posts, savePost, unSavePost, sentWaves}) => (
+const Saved = ({posts, savePost, unSavePost, sentWaves, navigation}) => (
   <SafeAreaView>
     <FlatList
       contentContainerStyle={styles.flatListContainer}
@@ -21,7 +21,9 @@ const Saved = ({posts, savePost, unSavePost, sentWaves}) => (
           />
         );
       }}
-      ListEmptyComponent={<EmptyList />}
+      ListEmptyComponent={
+        <EmptyList onPress={() => navigation.navigate('Home')} />
+      }
     />
   </SafeAreaView>
 );
@@ -31,6 +33,7 @@ Saved.proptypes = {
   savePosts: PropTypes.func,
   unSavePost: PropTypes.func,
   sentWaves: PropTypes.func,
+  navigation: PropTypes.object,
 };
 
 const styles = StyleSheet.create({

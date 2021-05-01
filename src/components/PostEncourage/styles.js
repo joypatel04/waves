@@ -2,8 +2,8 @@ import {StyleSheet} from 'react-native';
 import {darkCharcoal, primaryColor} from '../../themes/colors';
 import {
   primaryBoldFont,
-  secondaryBoldFont,
   secondaryFont,
+  secondaryBoldFont,
 } from '../../themes/fonts';
 import {scale} from '../../themes/scaler';
 
@@ -23,23 +23,21 @@ const styles = StyleSheet.create({
     fontFamily: primaryBoldFont,
   },
   subTitle: {
-    width: '80%',
     marginTop: scale(10),
     fontSize: scale(14),
     color: darkCharcoal,
     fontWeight: '400',
     fontFamily: secondaryFont,
-    textAlign: 'center',
   },
   button: {
     marginTop: scale(15),
-    padding: scale(4),
-    paddingHorizontal: scale(25),
+    padding: scale(3),
+    paddingHorizontal: scale(30),
     borderRadius: scale(15),
     backgroundColor: primaryColor,
   },
   buttonText: {
-    fontSize: scale(16),
+    fontSize: scale(18),
     fontFamily: secondaryBoldFont,
   },
 });

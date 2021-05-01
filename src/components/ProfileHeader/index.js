@@ -49,11 +49,36 @@ const ProfileHeader = ({following, onPressFollowing, onPressActionables}) => (
       </Text>
     </View>
     <View style={[styles.infoContainer, styles.socialContainer]}>
-      <Icon color={darkCharcoal} size={26} name="logo-instagram" />
-      <Icon color={darkCharcoal} size={26} name="logo-linkedin" />
-      <Icon color={darkCharcoal} size={26} name="logo-whatsapp" />
-      <Icon color={darkCharcoal} size={26} name="logo-github" />
-      <Icon color={darkCharcoal} size={26} name="mail-outline" />
+      <Icon
+        onPress={() => onPressActionables({type: 'instagram'})}
+        color={darkCharcoal}
+        size={26}
+        name="logo-instagram"
+      />
+      <Icon
+        onPress={() => onPressActionables({type: 'linkedin'})}
+        color={darkCharcoal}
+        size={26}
+        name="logo-linkedin"
+      />
+      <Icon
+        onPress={() => onPressActionables({type: 'whatsapp'})}
+        color={darkCharcoal}
+        size={26}
+        name="logo-whatsapp"
+      />
+      <Icon
+        onPress={() => onPressActionables({type: 'github'})}
+        color={darkCharcoal}
+        size={26}
+        name="logo-github"
+      />
+      <Icon
+        onPress={() => onPressActionables({type: 'email'})}
+        color={darkCharcoal}
+        size={28}
+        name="mail-outline"
+      />
     </View>
   </View>
 );
