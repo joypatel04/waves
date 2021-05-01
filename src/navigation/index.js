@@ -6,7 +6,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {ThemeProvider} from 'react-native-elements';
 
-import {Home, Profile, Saved, WritePost} from '../screens';
+import {Home, Profile, Saved, WritePost, Following} from '../screens';
 import {primaryColor, secondaryColor} from '../themes/colors';
 
 const Tab = createBottomTabNavigator();
@@ -71,6 +71,11 @@ export default function Navigation() {
             }}
             name="WritePost"
             component={WritePost}
+          />
+          <Stack.Screen
+            options={{headerBackTitleVisible: false}}
+            name="Following"
+            component={Following}
           />
         </Stack.Navigator>
       </ThemeProvider>
