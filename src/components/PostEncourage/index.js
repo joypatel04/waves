@@ -10,6 +10,7 @@ const PostEncourage = ({onPress}) => (
     <Text style={styles.title}>Write your first story</Text>
     <Text style={styles.subTitle}>We'd love to hear what you'r thinking</Text>
     <Button
+      onPress={onPress}
       buttonStyle={styles.button}
       titleStyle={styles.buttonText}
       title="Get started"

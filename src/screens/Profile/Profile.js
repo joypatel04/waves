@@ -1,14 +1,15 @@
 import React from 'react';
-import {View, SafeAreaView} from 'react-native';
+import {SafeAreaView} from 'react-native';
 import {ProfileHeader, PostEncourage} from '../../components';
 
-import styles from './styles';
-
-export default function Profile() {
+export default function Profile({navigation}) {
+  const onPressWrite = () => {
+    navigation.navigate('WritePost');
+  };
   return (
     <SafeAreaView>
       <ProfileHeader />
-      <PostEncourage />
+      <PostEncourage onPress={onPressWrite} />
     </SafeAreaView>
   );
 }

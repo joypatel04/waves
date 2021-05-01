@@ -10,7 +10,7 @@ import {scale} from '../../themes/scaler';
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    marginHorizontal: scale(16),
+    margin: scale(16),
     padding: scale(16),
     borderRadius: scale(14),
     justifyContent: 'center',
