@@ -53,7 +53,10 @@ const Profile = ({
                 navigation.navigate('Following', {following});
               }}
             />
-            <PostEncourage hasMyPost={myPosts.length} onPress={onPressWrite} />
+            <PostEncourage
+              hasMyPost={myPosts && myPosts.length > 0}
+              onPress={onPressWrite}
+            />
           </>
         }
       />

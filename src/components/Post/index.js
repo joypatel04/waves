@@ -32,7 +32,7 @@ const Post = ({
   return (
     <Card containerStyle={styles.cardContainer}>
       <PostHeader
-        userId={userId}
+        userId={`${userId}`}
         name={name}
         views={views}
         profileImageUrl={profileImageUrl}

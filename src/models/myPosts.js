@@ -1,56 +1,50 @@
 // import axios from 'axios';
-import {v4 as uuidv4} from 'uuid';
-import {randomViewsGenerator} from '../utils/helpers';
+import {randomViewsGenerator, randomWaveGenerator} from '../utils/helpers';
 
 const myPosts = {
   state: {
     data: [],
-    isLoading: false,
-    isError: null,
   },
   reducers: {
-    updateMyPostsLoading(state) {
-      return {
-        ...state,
-        isLoading: true,
-      };
-    },
-    updateMyPostsSuccess(state, data) {
-      const post = {
-        id: uuidv4(),
-        name: 'Joy Patel',
-        username: 'joy',
-        email: 'joy.patel@outlook.com',
-        phone: '+919265350142',
-        website: '',
-        userId: '44',
-        title: data.title,
-        body: data.story,
-        views: `${randomViewsGenerator(0, 2000)} Views`,
-        waves: 215,
-        userSentWaves: true,
-        hasSaved: false,
-        isMyPost: true,
-        profileImageUrl:
-          'https://user-images.githubusercontent.com/18585502/116792497-95f11b00-aade-11eb-9819-f6c56b6eff99.png',
-      };
-      return {
-        ...state,
-        isLoading: false,
-        data: [post, ...state.data],
-      };
-    },
-    updateMyPostsError(state, error) {
-      return {
-        ...state,
-        isLoading: false,
-        error,
-      };
+    updateMyPostsSuccess: (state, data) => {
+      try {
+        const id = `${randomWaveGenerator(0, 10000)}waves${Math.floor(
+          Math.random() * 10000,
+        )}`;
+        const views = randomViewsGenerator(0, 2000);
+        const post = {
+          id,
+          name: 'Joy Patel',
+          username: 'joy',
+          email: 'joy.patel@outlook.com',
+          phone: '+919265350142',
+          website: '',
+          userId: '44',
+          title: data.title,
+          body: data.story,
+          views: `${views} Views`,
+          waves: 215,
+          userSentWaves: true,
+          hasSaved: false,
+          isMyPost: true,
+          profileImageUrl:
+            'https://user-images.githubusercontent.com/18585502/116792497-95f11b00-aade-11eb-9819-f6c56b6eff99.png',
+        };
+
+        return {
+          ...state,
+          data: [post, ...state.data],
+        };
+      } catch (e) {
+        console.log(e);
+        return {
+          ...state,
+        };
+      }
     },
   },
   effects: (dispatch) => ({
     async updateMyPost(data) {
-      dispatch.myPosts.updateMyPostsLoading();
       try {
         // API Call to post new data to backend
         /*
@@ -68,7 +62,7 @@ const myPosts = {
         */
         dispatch.myPosts.updateMyPostsSuccess(data);
       } catch (e) {
-        dispatch.myPosts.updateMyPostsError(e);
+        console.log(e);
       }
     },
   }),

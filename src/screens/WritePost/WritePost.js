@@ -18,7 +18,9 @@ const WritePost = ({navigation, updateMyPost}) => {
   useLayoutEffect(() => {
     const onPostPress = () => {
       updateMyPost({title, story});
-      navigation.goBack();
+      setTimeout(() => {
+        navigation.goBack();
+      }, 0);
     };
 
     navigation.setOptions({
