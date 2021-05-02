@@ -4,13 +4,15 @@ import PropTypes from 'prop-types';
 import {Avatar, Text} from 'react-native-elements';
 import styles from './styles';
 
-const PostHeader = ({userId, name, views}) => (
+const PostHeader = ({userId, name, views, profileImageUrl}) => (
   <View style={styles.userInfocontainer}>
     <Avatar
       size="medium"
       rounded
       source={{
-        uri: `https://i.pravatar.cc/200?img=${userId}`,
+        uri: profileImageUrl
+          ? profileImageUrl
+          : `https://i.pravatar.cc/200?img=${userId}`,
       }}
     />
     <View style={styles.nameContainer}>

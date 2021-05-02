@@ -120,6 +120,8 @@ const posts = {
             waves: randomWaveGenerator(100, 600),
             userSentWaves: false,
             hasSaved: false,
+            isMyPost: false,
+            profileImageUrl: null,
           };
         });
 

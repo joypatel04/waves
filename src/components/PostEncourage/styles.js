@@ -40,6 +40,19 @@ const styles = StyleSheet.create({
     fontSize: scale(18),
     fontFamily: secondaryBoldFont,
   },
+  newPostButton: {
+    backgroundColor: primaryColor,
+    marginHorizontal: scale(16),
+    padding: scale(10),
+    borderRadius: scale(14),
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  newPostButtonText: {
+    fontSize: scale(14),
+    fontFamily: secondaryBoldFont,
+    color: 'white',
+  },
 });
 
 export default styles;

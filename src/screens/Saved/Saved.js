@@ -21,6 +21,7 @@ const Saved = ({posts, savePost, unSavePost, sentWaves, navigation}) => (
           />
         );
       }}
+      showsVerticalScrollIndicator={false}
       ListEmptyComponent={
         <EmptyList onPress={() => navigation.navigate('Home')} />
       }

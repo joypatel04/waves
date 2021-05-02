@@ -6,7 +6,7 @@ import * as models from '../models';
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['posts'],
+  whitelist: ['posts', 'myPosts'],
 };
 
 const store = init({

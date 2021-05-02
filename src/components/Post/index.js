@@ -18,28 +18,37 @@ const Post = ({item, onPressSave, onPressUnSave, sentWaves}) => {
     hasSaved,
     waves,
     userSentWaves,
+    isMyPost,
+    profileImageUrl,
   } = item;
 
   return (
     <Card containerStyle={styles.cardContainer}>
-      <PostHeader userId={userId} name={name} views={views} />
+      <PostHeader
+        userId={userId}
+        name={name}
+        views={views}
+        profileImageUrl={profileImageUrl}
+      />
       <Card.FeaturedTitle style={styles.title}>{title}</Card.FeaturedTitle>
       <Card.FeaturedSubtitle style={styles.subTitle}>
         {body}
       </Card.FeaturedSubtitle>
-      <View style={[styles.userInfocontainer, styles.spaceContainer]}>
-        <Waves
-          waves={userSentWaves}
-          waveCount={waves}
-          onPress={() => sentWaves(item)}
-        />
-        <Saved
-          hasSaved={hasSaved}
-          onPress={() => {
-            hasSaved ? onPressUnSave(item) : onPressSave(item);
-          }}
-        />
-      </View>
+      {!isMyPost && (
+        <View style={[styles.userInfocontainer, styles.spaceContainer]}>
+          <Waves
+            waves={userSentWaves}
+            waveCount={waves}
+            onPress={() => sentWaves(item)}
+          />
+          <Saved
+            hasSaved={hasSaved}
+            onPress={() => {
+              hasSaved ? onPressUnSave(item) : onPressSave(item);
+            }}
+          />
+        </View>
+      )}
     </Card>
   );
 };

@@ -27,6 +27,7 @@ const Home = ({getAllPostsAsync, posts, savePost, unSavePost, sentWaves}) => {
         data={posts}
         initialNumToRender={5}
         keyExtractor={(item) => `${item.id}`}
+        showsVerticalScrollIndicator={false}
         renderItem={({item}) => {
           return (
             <Post

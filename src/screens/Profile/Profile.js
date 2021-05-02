@@ -1,13 +1,16 @@
 import React, {useEffect, useCallback} from 'react';
-import {SafeAreaView, Linking, Alert} from 'react-native';
-import {ProfileHeader, PostEncourage} from '../../components';
+import {SafeAreaView, Linking, Alert, FlatList} from 'react-native';
+import {ProfileHeader, PostEncourage, Post} from '../../components';
 import {userData} from './userData';
 import {getRequestedUrl} from '../../utils/helpers';
+import {ScrollView} from 'react-native-gesture-handler';
+import styles from './styles';
 
 const Profile = ({
   navigation,
   getAllUsers,
   users: following, // Treating users as following.
+  myPosts,
 }) => {
   useEffect(() => {
     getAllUsers();
@@ -30,14 +33,28 @@ const Profile = ({
 
   return (
     <SafeAreaView>
-      <ProfileHeader
-        onPressActionables={onPressActionables}
-        following={following.length}
-        onPressFollowing={() => {
-          navigation.navigate('Following', {following});
+      <FlatList
+        contentContainerStyle={styles.flatListContainer}
+        data={myPosts}
+        initialNumToRender={5}
+        keyExtractor={(item) => `${item.id}`}
+        renderItem={({item}) => {
+          return <Post item={item} />;
         }}
+        showsVerticalScrollIndicator={false}
+        ListHeaderComponent={
+          <>
+            <ProfileHeader
+              onPressActionables={onPressActionables}
+              following={following.length}
+              onPressFollowing={() => {
+                navigation.navigate('Following', {following});
+              }}
+            />
+            <PostEncourage hasMyPost={myPosts.length} onPress={onPressWrite} />
+          </>
+        }
       />
-      <PostEncourage onPress={onPressWrite} />
     </SafeAreaView>
   );
 };

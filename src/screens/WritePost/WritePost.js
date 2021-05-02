@@ -1,6 +1,8 @@
 import React, {useLayoutEffect, useState} from 'react';
 import {KeyboardAvoidingView, View, TextInput, Keyboard} from 'react-native';
 import {Text} from 'react-native-elements';
+import PropTypes from 'prop-types';
+import _noop from 'lodash/noop';
 import {
   ScrollView,
   TouchableOpacity,
@@ -9,19 +11,24 @@ import {
 
 import styles from './styles';
 
-const WritePost = ({navigation}) => {
+const WritePost = ({navigation, updateMyPost}) => {
   const [title, setTitle] = useState('');
   const [story, setStory] = useState('');
 
   useLayoutEffect(() => {
+    const onPostPress = () => {
+      updateMyPost({title, story});
+      navigation.goBack();
+    };
+
     navigation.setOptions({
       headerRight: () => (
-        <TouchableOpacity onPress={() => {}} style={styles.postButton}>
+        <TouchableOpacity onPress={onPostPress} style={styles.postButton}>
           <Text style={styles.postText}>Post</Text>
         </TouchableOpacity>
       ),
     });
-  }, [navigation]);
+  }, [navigation, title, story, updateMyPost]);
 
   return (
     <ScrollView>
@@ -50,6 +57,14 @@ const WritePost = ({navigation}) => {
       </TouchableWithoutFeedback>
     </ScrollView>
   );
+};
+
+WritePost.proptypes = {
+  updateMyPost: PropTypes.func,
+};
+
+WritePost.defaultProps = {
+  updateMyPost: _noop,
 };
 
 export default WritePost;
