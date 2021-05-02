@@ -4,26 +4,32 @@ import {Text, Button} from 'react-native-elements';
 import PropTypes from 'prop-types';
 import styles from './styles';
 
-const EmptyList = ({onPress}) => (
-  <View style={styles.container}>
-    <Text style={styles.title}>You haven't saved anything yet.</Text>
-    <Text style={styles.subTitle}>
-      Tap the bookmark icon on posts to save them fot later, even offline
-    </Text>
-    <Button
-      onPress={onPress}
-      buttonStyle={styles.button}
-      titleStyle={styles.buttonText}
-      title="Posts worth saving"
-    />
+const EmptyList = ({title, subTitle, hasButton, onPress, containerStyle}) => (
+  <View style={[styles.container, containerStyle]}>
+    <Text style={styles.title}>{title}</Text>
+    {subTitle.length > 0 && <Text style={styles.subTitle}>{subTitle}</Text>}
+    {hasButton && (
+      <Button
+        onPress={onPress}
+        buttonStyle={styles.button}
+        titleStyle={styles.buttonText}
+        title="Posts worth saving"
+      />
+    )}
   </View>
 );
 
 EmptyList.proptypes = {
   title: PropTypes.string,
+  subTitle: PropTypes.subTitle,
+  hasButton: PropTypes.bool,
+  containerStyle: PropTypes.object,
 };
 
 EmptyList.defaultProps = {
-  title: 'Bookmarked posts will show up here',
+  title: "You haven't saved anything yet.",
+  subTitle: '',
+  hasButton: false,
+  containerStyle: {},
 };
 export default EmptyList;
