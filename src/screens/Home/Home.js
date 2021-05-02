@@ -47,12 +47,16 @@ const Home = ({getAllPostsAsync, posts, savePost, unSavePost, sentWaves}) => {
           return (
             <Post
               item={item}
+              waves={item.waves}
+              hasSaved={item.hasSaved}
+              userSentWaves={item.userSentWaves}
               onPressSave={savePost}
               onPressUnSave={unSavePost}
               sentWaves={sentWaves}
             />
           );
         }}
+        maxToRenderPerBatch={20}
         stickyHeaderIndices={[0]}
         ListHeaderComponent={
           <SearchBar onSearch={(text) => searchPost(text)} />

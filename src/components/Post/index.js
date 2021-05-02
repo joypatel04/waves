@@ -8,16 +8,21 @@ import Waves from './Waves';
 import Saved from './Saved';
 import styles from './styles';
 
-const Post = ({item, onPressSave, onPressUnSave, sentWaves}) => {
+const Post = ({
+  item,
+  onPressSave,
+  onPressUnSave,
+  sentWaves,
+  waves,
+  hasSaved,
+  userSentWaves,
+}) => {
   const {
     userId,
     name,
     views,
     title,
     body,
-    hasSaved,
-    waves,
-    userSentWaves,
     isMyPost,
     profileImageUrl,
     comments,
@@ -60,10 +65,16 @@ Post.proptypes = {
   onPressSave: PropTypes.func,
   onPressUnSave: PropTypes.func,
   sentWaves: PropTypes.func,
+  waves: PropTypes.number,
+  hasSaved: PropTypes.bool,
+  userSentWaves: PropTypes.bool,
 };
 
 Post.defaultProps = {
   onPressSave: _noop,
   onPressUnSave: _noop,
+  waves: 0,
+  hasSaved: false,
+  userSentWaves: false,
 };
-export default Post;
+export default React.memo(Post);

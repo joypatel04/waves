@@ -33,6 +33,9 @@ const Saved = ({posts, savePost, unSavePost, sentWaves, navigation}) => {
           return (
             <Post
               item={item}
+              waves={item.waves}
+              hasSaved={item.hasSaved}
+              userSentWaves={item.userSentWaves}
               onPressSave={savePost}
               onPressUnSave={unSavePost}
               sentWaves={sentWaves}
