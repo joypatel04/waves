@@ -72,6 +72,7 @@ Saved.proptypes = {
 
 const styles = StyleSheet.create({
   flatListContainer: {paddingBottom: 16},
+  emptyListContainer: {height: 80},
 });
 
 export default Saved;
