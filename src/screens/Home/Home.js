@@ -6,7 +6,14 @@ import {SafeAreaView, StyleSheet, FlatList} from 'react-native';
 import {EmptyList, Post, SearchBar} from '../../components';
 import {searchThoughPosts} from '../../utils/helpers';
 
-const Home = ({getAllPostsAsync, posts, savePost, unSavePost, sentWaves}) => {
+const Home = ({
+  getAllPostsAsync,
+  isLoading,
+  posts,
+  savePost,
+  unSavePost,
+  sentWaves,
+}) => {
   const [allPosts, setAllPosts] = useState(posts);
 
   useEffect(() => {
@@ -35,6 +42,10 @@ const Home = ({getAllPostsAsync, posts, savePost, unSavePost, sentWaves}) => {
     const newData = searchThoughPosts({query, posts});
     setAllPosts(newData);
   };
+
+  if (isLoading || posts.length === 0) {
+    return null;
+  }
 
   return (
     <SafeAreaView>
@@ -80,6 +91,7 @@ Home.propTypes = {
   savePost: PropTypes.func,
   unSavePost: PropTypes.func,
   sentWaves: PropTypes.func,
+  isLoading: PropTypes.bool,
 };
 
 const styles = StyleSheet.create({

@@ -7,6 +7,7 @@ const mapState = (state) => ({
   // posts: state.posts.data,
   // Combined data of posts with appropriate users info
   posts: state.posts.transformData,
+  isLoading: state.posts.isLoading,
 });
 
 const mapDispatch = (dispatch) => ({
