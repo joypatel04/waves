@@ -19,9 +19,14 @@ npx pod-install for ios
 npx react-native run-ios
 ```
 
-## Other dev improvements
+App runs for both Platform iOS & Android
 
-- Added multiple lint devDependencies
+## Other improvements
+
+- Added Custom fonts
+- Added Splash screen
+- Added App logos
+- Added multiple linter devDependencies
 - Added `husky` and `lint-stage` for pre-commit rule
 - Pre-commit checks lint issues and automatically tries to fix it. (If can't be fix then it shows error)
 
