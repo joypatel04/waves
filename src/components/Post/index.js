@@ -20,6 +20,7 @@ const Post = ({item, onPressSave, onPressUnSave, sentWaves}) => {
     userSentWaves,
     isMyPost,
     profileImageUrl,
+    comments,
   } = item;
 
   return (
@@ -39,6 +40,7 @@ const Post = ({item, onPressSave, onPressUnSave, sentWaves}) => {
           <Waves
             waves={userSentWaves}
             waveCount={waves}
+            commentsCount={comments.length}
             onPress={() => sentWaves(item)}
           />
           <Saved

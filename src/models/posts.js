@@ -83,6 +83,10 @@ const posts = {
     async getAllPostsAsync() {
       try {
         dispatch.posts.getPostsLoading();
+        const respComments = await axios.get(
+          'https://jsonplaceholder.typicode.com/comments',
+        );
+
         const respPosts = await axios.get(
           'https://jsonplaceholder.typicode.com/posts',
         );
@@ -90,6 +94,14 @@ const posts = {
         const respUsers = await axios.get(
           'https://jsonplaceholder.typicode.com/users',
         );
+
+        const {status: commentsStatus, data: commentsData} = idx(
+          respComments,
+          (_) => _,
+        ) || {
+          status: null,
+          data: [],
+        };
 
         const {status: postsStatus, data: postsData} = idx(
           respPosts,
@@ -112,6 +124,10 @@ const posts = {
             (user) => user.id === item.userId,
           );
 
+          const comments = commentsData.filter(
+            (comment) => comment.postId === item.id,
+          );
+
           return {
             ...particularUser,
             ...item,
@@ -122,6 +138,7 @@ const posts = {
             hasSaved: false,
             isMyPost: false,
             profileImageUrl: null,
+            comments,
           };
         });
 

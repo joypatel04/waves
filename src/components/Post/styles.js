@@ -64,6 +64,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  chatIcon: {
+    marginLeft: scale(16),
+  },
 });
 
 export default styles;
