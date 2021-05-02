@@ -3,7 +3,6 @@ import {SafeAreaView, Linking, Alert, FlatList} from 'react-native';
 import {ProfileHeader, PostEncourage, Post} from '../../components';
 import {userData} from './userData';
 import {getRequestedUrl} from '../../utils/helpers';
-import {ScrollView} from 'react-native-gesture-handler';
 import styles from './styles';
 
 const Profile = ({
