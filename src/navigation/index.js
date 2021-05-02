@@ -1,5 +1,6 @@
 import React from 'react';
 import {Platform} from 'react-native';
+import PropTypes from 'prop-types';
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -47,6 +48,12 @@ const Tabs = () => (
     <Tab.Screen name="Profile" component={Profile} />
   </Tab.Navigator>
 );
+
+Tabs.propTypes = {
+  focused: PropTypes.bool,
+  color: PropTypes.string,
+  size: PropTypes.number,
+};
 
 export default function Navigation() {
   const prefix = Platform.OS === 'android' ? 'mychat://mychat/' : 'mychat://';

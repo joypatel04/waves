@@ -95,10 +95,7 @@ const posts = {
           'https://jsonplaceholder.typicode.com/users',
         );
 
-        const {status: commentsStatus, data: commentsData} = idx(
-          respComments,
-          (_) => _,
-        ) || {
+        const {data: commentsData} = idx(respComments, (_) => _) || {
           status: null,
           data: [],
         };

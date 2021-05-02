@@ -1,10 +1,11 @@
 import React from 'react';
 import {View, TouchableOpacity} from 'react-native';
 import {Text, Image} from 'react-native-elements';
+import Icon from 'react-native-vector-icons/Ionicons';
 import _noop from 'lodash/noop';
 import PropTypes from 'prop-types';
+
 import styles from './styles';
-import Icon from 'react-native-vector-icons/Ionicons';
 import {darkCharcoal} from '../../themes/colors';
 
 const profileImage =
@@ -40,7 +41,7 @@ const ProfileHeader = ({following, onPressFollowing, onPressActionables}) => (
     </View>
     <View style={styles.infoContainer}>
       <Text style={styles.userName}>Joy Patel</Text>
-      <Text style={styles.bio}>Livin'a little ☮️</Text>
+      <Text style={styles.bio}>{"Livin'a little ☮️"}</Text>
       <Text style={styles.bio}>
         Application developer/Team lead - @betterhalf.ai
       </Text>
@@ -83,7 +84,7 @@ const ProfileHeader = ({following, onPressFollowing, onPressActionables}) => (
   </View>
 );
 
-ProfileHeader.proptypes = {
+ProfileHeader.propTypes = {
   onPressFollowing: PropTypes.func,
   following: PropTypes.string,
   onPressActionables: PropTypes.func,

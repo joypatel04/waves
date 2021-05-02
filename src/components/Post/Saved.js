@@ -25,7 +25,7 @@ const Saved = ({hasSaved, onPress}) => (
   </View>
 );
 
-Saved.proptypes = {
+Saved.propTypes = {
   onPress: PropTypes.func,
   hasSaved: PropTypes.bool,
 };

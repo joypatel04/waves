@@ -3,6 +3,7 @@ import {View} from 'react-native';
 import {SearchBar as Search, Card} from 'react-native-elements';
 import _noop from 'lodash/noop';
 import PropTypes from 'prop-types';
+
 import styles from './styles';
 
 const SearchBar = ({onSearch}) => {
@@ -28,7 +29,7 @@ const SearchBar = ({onSearch}) => {
   );
 };
 
-SearchBar.proptypes = {
+SearchBar.propTypes = {
   onSearch: PropTypes.func,
 };
 

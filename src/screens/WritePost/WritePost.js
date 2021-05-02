@@ -59,8 +59,9 @@ const WritePost = ({navigation, updateMyPost}) => {
   );
 };
 
-WritePost.proptypes = {
+WritePost.propTypes = {
   updateMyPost: PropTypes.func,
+  navigation: PropTypes.object,
 };
 
 WritePost.defaultProps = {

@@ -3,9 +3,10 @@ import {View, TouchableWithoutFeedback, Image} from 'react-native';
 import {Text} from 'react-native-elements';
 import PropTypes from 'prop-types';
 import _noop from 'lodash/noop';
+import Icon from 'react-native-vector-icons/Ionicons';
+
 import {wave} from '../../assets/images';
 import styles from './styles';
-import Icon from 'react-native-vector-icons/Ionicons';
 import {lightGrey} from '../../themes/colors';
 
 const Waves = ({waves, onPress, waveCount, commentsCount}) => (
@@ -31,7 +32,7 @@ const Waves = ({waves, onPress, waveCount, commentsCount}) => (
   </View>
 );
 
-Waves.proptypes = {
+Waves.propTypes = {
   onPress: PropTypes.func,
   waves: PropTypes.bool,
   waveCount: PropTypes.number,

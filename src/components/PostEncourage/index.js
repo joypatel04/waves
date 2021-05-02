@@ -3,6 +3,7 @@ import {View, TouchableOpacity} from 'react-native';
 import {Text, Button} from 'react-native-elements';
 import _noop from 'lodash/noop';
 import PropTypes from 'prop-types';
+
 import styles from './styles';
 
 const PostEncourage = ({hasMyPost, onPress}) => (
@@ -15,7 +16,7 @@ const PostEncourage = ({hasMyPost, onPress}) => (
       <View style={styles.container}>
         <Text style={styles.title}>Write your first story</Text>
         <Text style={styles.subTitle}>
-          We'd love to hear what you'r thinking
+          {"We'd love to hear what you'r thinking"}
         </Text>
         <Button
           onPress={onPress}
@@ -28,7 +29,7 @@ const PostEncourage = ({hasMyPost, onPress}) => (
   </>
 );
 
-PostEncourage.proptypes = {
+PostEncourage.propTypes = {
   onPress: PropTypes.func,
   hasMyPost: PropTypes.bool,
 };

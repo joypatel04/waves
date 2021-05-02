@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+
 import {darkCharcoal, primaryColor} from '../../themes/colors';
 import {
   primaryBoldFont,

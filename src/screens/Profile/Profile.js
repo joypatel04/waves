@@ -1,5 +1,7 @@
 import React, {useEffect, useCallback} from 'react';
 import {SafeAreaView, Linking, Alert, FlatList} from 'react-native';
+import PropTypes from 'prop-types';
+
 import {ProfileHeader, PostEncourage, Post} from '../../components';
 import {userData} from './userData';
 import {getRequestedUrl} from '../../utils/helpers';
@@ -57,6 +59,13 @@ const Profile = ({
       />
     </SafeAreaView>
   );
+};
+
+Profile.propTypes = {
+  navigation: PropTypes.object,
+  getAllUsers: PropTypes.func,
+  users: PropTypes.array,
+  myPosts: PropTypes.array,
 };
 
 export default Profile;

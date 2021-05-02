@@ -3,6 +3,7 @@ import {ListItem, Avatar} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
 import _noop from 'lodash/noop';
 import PropTypes from 'prop-types';
+
 import {darkCharcoal} from '../../themes/colors';
 import styles from './styles';
 
@@ -34,7 +35,7 @@ const UserListItem = ({
   </ListItem>
 );
 
-UserListItem.proptypes = {
+UserListItem.propTypes = {
   onPressEmail: PropTypes.func,
   onPressWebsite: PropTypes.func,
   item: PropTypes.object,

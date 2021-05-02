@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {SafeAreaView, StyleSheet, FlatList} from 'react-native';
 import PropTypes from 'prop-types';
+
 import {EmptyList, Post, SearchBar} from '../../components';
 import {searchThoughPosts} from '../../utils/helpers';
 
@@ -66,9 +67,9 @@ const Saved = ({posts, savePost, unSavePost, sentWaves, navigation}) => {
   );
 };
 
-Saved.proptypes = {
+Saved.propTypes = {
   posts: PropTypes.array,
-  savePosts: PropTypes.func,
+  savePost: PropTypes.func,
   unSavePost: PropTypes.func,
   sentWaves: PropTypes.func,
   navigation: PropTypes.object,

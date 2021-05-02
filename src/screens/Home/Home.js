@@ -2,6 +2,7 @@ import React, {useEffect, useCallback, useState} from 'react';
 import RNBootSplash from 'react-native-bootsplash';
 import PropTypes from 'prop-types';
 import {SafeAreaView, StyleSheet, FlatList} from 'react-native';
+
 import {EmptyList, Post, SearchBar} from '../../components';
 import {searchThoughPosts} from '../../utils/helpers';
 
@@ -72,10 +73,11 @@ const Home = ({getAllPostsAsync, posts, savePost, unSavePost, sentWaves}) => {
   );
 };
 
-Home.proptypes = {
+Home.propTypes = {
   getAllPostsAsync: PropTypes.func,
   posts: PropTypes.array,
   savePosts: PropTypes.func,
+  savePost: PropTypes.func,
   unSavePost: PropTypes.func,
   sentWaves: PropTypes.func,
 };

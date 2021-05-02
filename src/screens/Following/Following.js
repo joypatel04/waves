@@ -1,6 +1,8 @@
 import React, {useCallback} from 'react';
 import idx from 'idx';
+import PropTypes from 'prop-types';
 import {SafeAreaView, Linking, Alert, FlatList} from 'react-native';
+
 import {UserListItem} from '../../components';
 import {getRequestedUrl} from '../../utils/helpers';
 
@@ -38,6 +40,10 @@ const Following = ({route}) => {
       />
     </SafeAreaView>
   );
+};
+
+Following.propTypes = {
+  route: PropTypes.object,
 };
 
 export default Following;

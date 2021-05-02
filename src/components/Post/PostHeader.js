@@ -2,6 +2,7 @@ import React from 'react';
 import {View} from 'react-native';
 import PropTypes from 'prop-types';
 import {Avatar, Text} from 'react-native-elements';
+
 import styles from './styles';
 
 const PostHeader = ({userId, name, views, profileImageUrl}) => (
@@ -26,10 +27,11 @@ const PostHeader = ({userId, name, views, profileImageUrl}) => (
   </View>
 );
 
-PostHeader.proptypes = {
+PostHeader.propTypes = {
   userId: PropTypes.string,
   name: PropTypes.string,
   views: PropTypes.string,
+  profileImageUrl: PropTypes.string,
 };
 
 export default React.memo(PostHeader);

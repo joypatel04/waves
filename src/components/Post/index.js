@@ -3,6 +3,7 @@ import {View} from 'react-native';
 import {Card} from 'react-native-elements';
 import PropTypes from 'prop-types';
 import _noop from 'lodash/noop';
+
 import PostHeader from './PostHeader';
 import Waves from './Waves';
 import Saved from './Saved';
@@ -60,7 +61,7 @@ const Post = ({
   );
 };
 
-Post.proptypes = {
+Post.propTypes = {
   item: PropTypes.object,
   onPressSave: PropTypes.func,
   onPressUnSave: PropTypes.func,

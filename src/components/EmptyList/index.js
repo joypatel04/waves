@@ -2,6 +2,7 @@ import React from 'react';
 import {View} from 'react-native';
 import {Text, Button} from 'react-native-elements';
 import PropTypes from 'prop-types';
+
 import styles from './styles';
 
 const EmptyList = ({title, subTitle, hasButton, onPress, containerStyle}) => (
@@ -19,11 +20,12 @@ const EmptyList = ({title, subTitle, hasButton, onPress, containerStyle}) => (
   </View>
 );
 
-EmptyList.proptypes = {
+EmptyList.propTypes = {
   title: PropTypes.string,
   subTitle: PropTypes.subTitle,
   hasButton: PropTypes.bool,
   containerStyle: PropTypes.object,
+  onPress: PropTypes.func,
 };
 
 EmptyList.defaultProps = {
