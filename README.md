@@ -43,7 +43,7 @@ App runs for both Platform iOS & Android
   - User can search thorugh List of Posts based on User's `name, username, title, body`
 - Bookmark/Save Posts screen
 
-  - If you save posts and go offline and launch the app data will be still visible since it's persisted.
+  - If you save/bookmark posts and kill the app and go offline and launch the app data will be still visible since it's persisted.
   - User can search thorugh List of Posts based on User `name, username, title, body`
   - User can Bookmark/Unbookmark posts
 
