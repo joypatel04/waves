@@ -19,6 +19,12 @@ npx pod-install for ios
 npx react-native run-ios
 ```
 
+## Other dev improvements
+
+- Added multiple lint devDependencies
+- Added `husky` and `lint-stage` for pre-commit rule
+- Pre-commit checks lint issues and automatically tries to fix it. (If can't be fix then it shows error)
+
 ## Screens
 
 - Posts screen
