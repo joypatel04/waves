@@ -22,7 +22,7 @@ const EmptyList = ({title, subTitle, hasButton, onPress, containerStyle}) => (
 
 EmptyList.propTypes = {
   title: PropTypes.string,
-  subTitle: PropTypes.subTitle,
+  subTitle: PropTypes.string,
   hasButton: PropTypes.bool,
   containerStyle: PropTypes.object,
   onPress: PropTypes.func,

@@ -86,12 +86,12 @@ const ProfileHeader = ({following, onPressFollowing, onPressActionables}) => (
 
 ProfileHeader.propTypes = {
   onPressFollowing: PropTypes.func,
-  following: PropTypes.string,
+  following: PropTypes.number,
   onPressActionables: PropTypes.func,
 };
 
 ProfileHeader.defaultProps = {
-  following: '20',
+  following: 20,
   onPressFollowing: _noop,
   onPressActionables: _noop,
 };
