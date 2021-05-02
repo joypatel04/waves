@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>318251778687-t03nuoq5lrja8slkju912slrt5atfrkh.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.318251778687-t03nuoq5lrja8slkju912slrt5atfrkh</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>318251778687-q2bfgh0290p2o1hl15r9tffjfgiav721.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAh7TWoXNwQKlvTPR227awXi7OxsIDi7M8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>318251778687</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>dev.barelyhuman.rnboiler</string>
+	<key>PROJECT_ID</key>
+	<string>waves-51f19</string>
+	<key>STORAGE_BUCKET</key>
+	<string>waves-51f19.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:318251778687:ios:173378886fbe075dd4b54a</string>
+</dict>
+</plist>
