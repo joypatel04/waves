@@ -27,3 +27,25 @@ export const getRequestedUrl = ({type, value}) => {
       return value;
   }
 };
+
+export const searchThoughPosts = ({query, posts}) => {
+  const lowecaseStr = query.toLowerCase();
+  const regex = new RegExp(lowecaseStr, 'g');
+
+  const newData = posts.filter((item) => {
+    const title = item.title.toLowerCase();
+    const body = item.body.toLowerCase();
+    const name = item.name.toLowerCase();
+    const username = item.username.toLowerCase();
+    if (
+      regex.exec(title) ||
+      regex.exec(body) ||
+      regex.exec(name) ||
+      regex.exec(username)
+    ) {
+      return item;
+    }
+  });
+
+  return newData;
+};

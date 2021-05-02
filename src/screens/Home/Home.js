@@ -1,12 +1,17 @@
 import React, {useEffect, useCallback, useState} from 'react';
 import RNBootSplash from 'react-native-bootsplash';
 import PropTypes from 'prop-types';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import {SafeAreaView, StyleSheet, FlatList} from 'react-native';
 import {EmptyList, Post, SearchBar} from '../../components';
-import {FlatList} from 'react-native-gesture-handler';
+import {searchThoughPosts} from '../../utils/helpers';
 
 const Home = ({getAllPostsAsync, posts, savePost, unSavePost, sentWaves}) => {
-  const [searchedData, setSearchedData] = useState(null);
+  const [allPosts, setAllPosts] = useState(posts);
+
+  useEffect(() => {
+    setAllPosts(posts);
+  }, [posts]);
+
   const getAllData = useCallback(async () => {
     await getAllPostsAsync();
   }, [getAllPostsAsync]);
@@ -23,37 +28,18 @@ const Home = ({getAllPostsAsync, posts, savePost, unSavePost, sentWaves}) => {
 
   const searchPost = (query) => {
     if (query.length === 0) {
-      setSearchedData(null);
+      setAllPosts(posts);
       return null;
     }
-
-    const lowecaseStr = query.toLowerCase();
-    const regex = new RegExp(lowecaseStr, 'g');
-
-    const newData = posts.filter((item) => {
-      const title = item.title.toLowerCase();
-      const body = item.body.toLowerCase();
-      const name = item.name.toLowerCase();
-      const username = item.username.toLowerCase();
-      if (
-        regex.exec(title) ||
-        regex.exec(body) ||
-        regex.exec(name) ||
-        regex.exec(username)
-      ) {
-        return item;
-      }
-    });
-    setSearchedData(newData);
+    const newData = searchThoughPosts({query, posts});
+    setAllPosts(newData);
   };
-
-  console.log(searchedData);
 
   return (
     <SafeAreaView>
       <FlatList
         contentContainerStyle={styles.flatListContainer}
-        data={searchedData || posts}
+        data={allPosts}
         initialNumToRender={5}
         keyExtractor={(item) => `${item.id}`}
         showsVerticalScrollIndicator={false}

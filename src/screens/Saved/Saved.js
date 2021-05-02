@@ -1,43 +1,32 @@
-import React, {useState} from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {SafeAreaView, StyleSheet, FlatList} from 'react-native';
 import PropTypes from 'prop-types';
 import {EmptyList, Post, SearchBar} from '../../components';
-import {FlatList} from 'react-native-gesture-handler';
+import {searchThoughPosts} from '../../utils/helpers';
 
 const Saved = ({posts, savePost, unSavePost, sentWaves, navigation}) => {
-  const [searchedData, setSearchedData] = useState(null);
+  const [allPosts, setAllPosts] = useState(posts);
   const [searchValue, setSearchValue] = useState('');
+
+  useEffect(() => {
+    setAllPosts(posts);
+  }, [posts]);
+
   const searchPost = (query) => {
     setSearchValue(query);
     if (query.length === 0) {
-      setSearchedData(null);
+      setAllPosts(posts);
       return null;
     }
-
-    const lowecaseStr = query.toLowerCase();
-    const regex = new RegExp(lowecaseStr, 'g');
-
-    const newData = posts.filter((item) => {
-      const title = item.title.toLowerCase();
-      const body = item.body.toLowerCase();
-      const name = item.name.toLowerCase();
-      const username = item.username.toLowerCase();
-      if (
-        regex.exec(title) ||
-        regex.exec(body) ||
-        regex.exec(name) ||
-        regex.exec(username)
-      ) {
-        return item;
-      }
-    });
-    setSearchedData(newData);
+    const newData = searchThoughPosts({query, posts});
+    setAllPosts(newData);
   };
+
   return (
     <SafeAreaView>
       <FlatList
         contentContainerStyle={styles.flatListContainer}
-        data={searchedData || posts}
+        data={allPosts}
         initialNumToRender={5}
         keyExtractor={(item) => `${item.id}`}
         renderItem={({item}) => {
