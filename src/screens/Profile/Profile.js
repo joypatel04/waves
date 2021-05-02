@@ -36,6 +36,7 @@ const Profile = ({
         contentContainerStyle={styles.flatListContainer}
         data={myPosts}
         initialNumToRender={5}
+        maxToRenderPerBatch={20}
         keyExtractor={(item) => `${item.id}`}
         renderItem={({item}) => {
           return <Post item={item} />;

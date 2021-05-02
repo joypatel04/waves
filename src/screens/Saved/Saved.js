@@ -28,6 +28,7 @@ const Saved = ({posts, savePost, unSavePost, sentWaves, navigation}) => {
         contentContainerStyle={styles.flatListContainer}
         data={allPosts}
         initialNumToRender={5}
+        maxToRenderPerBatch={20}
         keyExtractor={(item) => `${item.id}`}
         renderItem={({item}) => {
           return (
